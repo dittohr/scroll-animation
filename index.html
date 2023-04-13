@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 애니메이션 테스트</title>
+</head>
+<body>
+    <style>
+        body {
+            background: black;
+            height: 6000px;
+        }
+
+        div {
+            margin-top: 1000px;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+    </style>
+
+    <div>
+        <h1>iPhone 15 Pro Max Ultra 출시</h1>
+    </div>
+
+    <div>
+        <h1>LGBTQ 색상 추가</h1>
+    </div>
+
+    <div>
+        <h1>바뀐 것은 단 하나, 전부입니다</h1>
+    </div>
+
+    <div>
+        <h1>터치를 없앤 디스플레이의 혁신, <br><br>2,300,000원부터</h1>
+    </div>
+
+    <script>
+        let observer = new IntersectionObserver((e) => {
+            e.forEach((box) => {
+                if (box.isIntersecting) {
+                    box.target.style.opacity = 1;
+                } else {
+                    box.target.style.opacity = 0;
+                }
+            })
+        })
+
+        let div = document.querySelectorAll('div')
+        observer.observe(div[0])
+        observer.observe(div[1])
+        observer.observe(div[2])
+        observer.observe(div[3])
+    </script>
+
+    <div>
+        <img src="image.jpg">
+    </div>
+</body>
+</html>
